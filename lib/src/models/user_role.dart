@@ -1,8 +1,14 @@
+import 'package:json_annotation/json_annotation.dart';
+
+@JsonSerializable(createFactory: false)
 class UserRole {
   final String _name;
   final String _code;
   final String _displayName;
   const UserRole._(this._name, [this._code, this._displayName]);
+
+  factory UserRole.fromJson(String value) => tryParse(value);
+  String toJson() => this.value;
 
   @override
   String toString() => _name;

@@ -21,4 +21,6 @@ abstract class Entity {
     String runtimeType = this.runtimeType.toString();
     return runtimeType[0].toLowerCase() + runtimeType.substring(1);
   }
+
+  Map<String, dynamic> toJson();
 }

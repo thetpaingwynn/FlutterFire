@@ -20,6 +20,7 @@ dependencies:
   get_it: ^4.0.4
   mobx: ^1.2.1+1
   flutter_mobx: ^1.1.0+1
+  json_serializable: ^3.3.0
   validators: ^2.0.1
   ulid: ^1.1.0
 
@@ -29,6 +30,7 @@ dev_dependencies:
   build_runner: ^1.10.0
   mobx_codegen: ^1.1.0+1
   injectable_generator: ^1.0.3
+  json_serializable_generator: ^1.0.1
 
 flutter:
   uses-material-design: true
