@@ -1,4 +1,4 @@
-# flutterfire
+# Flutter, Firebase Auth & Cloud Firestore example
 
 Flutter Firebase example project.
 

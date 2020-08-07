@@ -1,0 +1,8 @@
+{
+  "singleQuote": true,
+  "trailingComma": "none",
+  "printWidth": 250,
+  "semi": false,
+  "eslintIntegration": true,
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true
+}
