@@ -1,4 +1,4 @@
-import 'package:flutterfire/src/models/entity.dart';
+import '../models/entity.dart';
 
 abstract class Repository {
   Future<T> get<T extends Entity>(String id);

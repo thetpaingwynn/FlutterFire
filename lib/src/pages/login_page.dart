@@ -166,20 +166,13 @@ class _LoginPageState extends State<LoginPage> with BasicPageFeature {
   Widget _signUpButton() {
     return FlatButton(
       child: Text("Don't have an account? Sign up Now.", style: TextStyle(color: Colors.blue[400])),
-      onPressed: () async {
-        final user = await Navigator.of(context).push(
-          MaterialPageRoute<User>(
-            builder: (BuildContext context) => RegisterPage(),
-            settings: RouteSettings(name: "RegisterPage"),
-            fullscreenDialog: true,
-          ),
-        );
-        if (user != null) {
-          _store.email = user.email;
-          _store.password = user.password;
-          await _login();
-        }
-      },
+      onPressed: () => Navigator.of(context).push(
+        MaterialPageRoute<User>(
+          builder: (BuildContext context) => RegisterPage(),
+          settings: RouteSettings(name: "RegisterPage"),
+          fullscreenDialog: true,
+        ),
+      ),
     );
   }
 

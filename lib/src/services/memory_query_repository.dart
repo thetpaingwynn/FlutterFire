@@ -1,12 +1,9 @@
 import 'dart:async';
 
-import 'package:injectable/injectable.dart';
-
 import '../models/entity.dart';
 import 'query_repository.dart';
 import 'repository.dart';
 
-@Singleton(as: QueryRepository)
 class MemoryQueryRepository extends QueryRepository {
   final Repository _repository;
 

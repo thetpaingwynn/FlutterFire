@@ -8,6 +8,7 @@ import 'src/app.dart';
 final getIt = GetIt.instance;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   configureDependencyInjection();
   runApp(App());
 }

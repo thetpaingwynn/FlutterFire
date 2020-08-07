@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
+import '../mxins/basic_page_feature.dart';
 import '../stores/register_page_store.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -10,13 +11,11 @@ class RegisterPage extends StatefulWidget {
   _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<RegisterPage> with BasicPageFeature {
   final _store = GetIt.instance.get<RegisterPageStore>();
   final _nameFocus = FocusNode();
   final _emailFocus = FocusNode();
   final _passwordFocus = FocusNode();
-
-  bool _inAsyncCall = false;
 
   TextStyle get kLabelStyle => TextStyle(fontWeight: FontWeight.bold);
 
@@ -85,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
       ),
-      inAsyncCall: _inAsyncCall,
+      inAsyncCall: inAsyncCall,
     );
   }
 
@@ -102,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
               onChanged: (value) => _store.name = value,
               autofocus: true,
               focusNode: _nameFocus,
-              onSubmitted: (_) => _fieldFocusChange(context, _nameFocus, _emailFocus),
+              onSubmitted: (_) => fieldFocusChange(context, _nameFocus, _emailFocus),
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
@@ -132,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
               onChanged: (value) => _store.email = value,
               autofocus: true,
               focusNode: _emailFocus,
-              onSubmitted: (_) => _fieldFocusChange(context, _emailFocus, _passwordFocus),
+              onSubmitted: (_) => fieldFocusChange(context, _emailFocus, _passwordFocus),
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
@@ -202,28 +201,11 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future _signUp() async {
-    await _progressCall(() async {
+    await progressCall(() async {
       final user = await _store.signUp();
       if (user != null) {
         Navigator.of(context).pop(user);
       }
     });
-  }
-
-  Future<bool> _progressCall(Function call) async {
-    try {
-      setState(() => _inAsyncCall = true);
-      await call();
-      setState(() => _inAsyncCall = false);
-      return true;
-    } catch (e) {
-      setState(() => _inAsyncCall = false);
-      return false;
-    }
-  }
-
-  void _fieldFocusChange(BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
-    currentFocus.unfocus();
-    FocusScope.of(context).requestFocus(nextFocus);
   }
 }

@@ -1,14 +1,11 @@
 import 'dart:async';
 
-import 'package:flutterfire/src/models/user.dart';
-import 'package:flutterfire/src/models/user_role.dart';
-import 'package:flutterfire/src/utils/utils.dart';
-import 'package:injectable/injectable.dart';
-
+import '../utils/utils.dart';
+import '../models/user.dart';
+import '../models/user_role.dart';
 import 'auth_service.dart';
 import 'repository.dart';
 
-@Singleton(as: AuthService)
 class MemoryAuthService extends AuthService {
   final Repository _repository;
 

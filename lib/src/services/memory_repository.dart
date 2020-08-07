@@ -1,9 +1,6 @@
-import 'package:injectable/injectable.dart';
-
 import 'repository.dart';
 import '../models/entity.dart';
 
-@Singleton(as: Repository)
 class MemoryRepository extends Repository {
   final Map<Type, Map<String, Entity>> _store = {};
 

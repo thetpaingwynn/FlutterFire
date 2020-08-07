@@ -1,8 +1,8 @@
-import 'package:flutterfire/src/models/user.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 import 'package:validators/validators.dart';
 
+import '../models/user.dart';
 import '../services/auth_service.dart';
 
 part 'register_page_store.g.dart';

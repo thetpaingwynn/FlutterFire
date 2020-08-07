@@ -1,9 +1,10 @@
 import 'dart:async';
-import 'package:flutterfire/src/services/repository.dart';
+
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
 import '../models/user.dart';
+import '../services/repository.dart';
 import '../services/query_repository.dart';
 
 part 'user_list_page_store.g.dart';

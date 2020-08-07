@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterfire/src/models/user.dart';
 
+import 'package:flutterfire/src/models/user.dart';
 import 'package:flutterfire/src/stores/register_page_store.dart';
 
 import 'mock_services.dart';
